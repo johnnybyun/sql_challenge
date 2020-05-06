@@ -1,11 +1,11 @@
 --CREATE THE SCHEMAS--
 
-DROP TABLE departments
-DROP TABLE dept_emp
-DROP TABLE dept_manager
-DROP TABLE employees
-DROP TABLE salaries
-DROP TABLE titles
+DROP TABLE IF EXISTS departments;
+DROP TABLE IF EXISTS dept_emp;
+DROP TABLE IF EXISTS dept_manager;
+DROP TABLE IF EXISTS employees;
+DROP TABLE IF EXISTS salaries;
+DROP TABLE IF EXISTS titles;
 
 CREATE TABLE departments (
     dept_no VARCHAR   NOT NULL,
@@ -82,7 +82,7 @@ ALTER TABLE dept_manager ADD PRIMARY KEY (emp_no, dept_no);
 ALTER TABLE salaries ADD PRIMARY KEY (emp_no, salary);
 ALTER TABLE employees ADD PRIMARY KEY (emp_no);
 ALTER TABLE titles ADD COLUMN id SERIAL PRIMARY KEY;
-SELECT * FROM titles
+SELECT * FROM titles;
 
 ALTER TABLE salaries
 ADD CONSTRAINT fk_constraint FOREIGN KEY (emp_no) REFERENCES employees (emp_no);
@@ -96,6 +96,9 @@ ALTER TABLE dept_manager
 ADD CONSTRAINT fk_constraint4 FOREIGN KEY (dept_no) REFERENCES departments (dept_no);
 ALTER TABLE dept_emp
 ADD CONSTRAINT fk_constraint5 FOREIGN KEY (dept_no) REFERENCES departments (dept_no);
+
+
+
 
 
 
